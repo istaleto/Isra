@@ -1,5 +1,7 @@
 package com.example.upam.video_streamig_iissrraa;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -42,6 +44,17 @@ public class MainActivity extends AppCompatActivity {
         toast.setView(layout);
         toast.show();
 
+        AlertDialog alerta = new AlertDialog.Builder(this).create();
+
+        alerta.setTitle("Alerta");
+        alerta.setMessage("Visualizar video RTSP");
+        alerta.setIcon(R.drawable.ic_stat_name);
+        alerta.setButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
     }
 
 }
