@@ -1,5 +1,6 @@
 package com.example.upam.video_streamig_iissrraa;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +32,21 @@ public class MainActivity extends AppCompatActivity {
         visor.setMediaController(mediaController);
         visor.start();
 
+        AlertDialog alerta = new AlertDialog.Builder(this).create();
+
+        alerta.setTitle("Alerta");
+        alerta.setMessage("Visualizar video RTSP");
+        alerta.setIcon(R.drawable.ic_stat_name);
+        alerta.setButton(Dialog.BUTTON_POSITIVE,"Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                llamarToast();
+            }
+        });
+        alerta.show();
+    }
+
+    public void llamarToast(){
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.customtoast,
                 (ViewGroup) findViewById(R.id.custom_toast_container));
@@ -43,18 +59,6 @@ public class MainActivity extends AppCompatActivity {
         toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(layout);
         toast.show();
-
-        AlertDialog alerta = new AlertDialog.Builder(this).create();
-
-        alerta.setTitle("Alerta");
-        alerta.setMessage("Visualizar video RTSP");
-        alerta.setIcon(R.drawable.ic_stat_name);
-        alerta.setButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
     }
 
 }
